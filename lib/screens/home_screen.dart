@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/widgets/myscaffold.dart';
 
 
 class HomeScreen extends StatefulWidget {
@@ -10,17 +11,12 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreen extends State<HomeScreen> {
+  bool isAuthenticated = true;
   @override
   Widget build(BuildContext context) {
 
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Apllication mobile', style: TextStyle(color: Colors.white)),
-        leading: const Icon(Icons.access_alarm, color: Color(0xFFFF00FF)),
-        elevation: 10.0,
-        centerTitle: true,
-      ),
-
+    return MyScaffold(
+      name: 'Application mobile',
       body: Center(
         child: Column(children: [
           ElevatedButton(
@@ -54,12 +50,30 @@ class _HomeScreen extends State<HomeScreen> {
           ElevatedButton(
             onPressed: btmessage1,
             child: Text('Message'),
+          ),ElevatedButton(
+            onPressed: api,
+            child: Text('Api register'),
+          ),ElevatedButton(
+            onPressed: login,
+            child: Text('Login'),
           ),
         ]),
       ),
     );
   }
 
+  void api(){
+    Navigator.pushNamed(
+        context,
+        '/register',
+    );
+  }
+  void login(){
+    Navigator.pushNamed(
+        context,
+        '/login',
+    );
+  }
   void btAbout() {
     Navigator.pushNamed(
       context,

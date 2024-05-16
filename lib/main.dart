@@ -5,12 +5,23 @@ import 'package:flutter_application_1/screens/formulaire_screen1.dart';
 import 'package:flutter_application_1/screens/home_screen.dart';
 import 'package:flutter_application_1/screens/home_screen1.dart';
 import 'package:flutter_application_1/screens/inkwell_screen.dart';
+import 'package:flutter_application_1/screens/login_screen.dart';
 import 'package:flutter_application_1/screens/message_screen.dart';
 import 'package:flutter_application_1/screens/message_screen1.dart';
+import 'package:flutter_application_1/screens/profil_screen.dart';
+import 'package:flutter_application_1/screens/register_screen.dart';
 import 'package:flutter_application_1/screens/setting_screen.dart';
+import 'package:flutter_application_1/screens/register_screen.dart';
+import 'package:provider/provider.dart';
+import 'providers/auth_provider.dart';
 
 void main() {
-  runApp(const MainApp());
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => AuthProvider(),
+      child: MainApp(),
+    ),
+  );
 }
 
 class MainApp extends StatelessWidget {
@@ -36,6 +47,9 @@ class MainApp extends StatelessWidget {
         '/inkwell': (context) => const MyAppbtinkwell(),
         '/user' : (context) => const HomeScreen1(),
         '/message1' : (context) => const MessageScreen1(),
+        '/register': (context) => const RegisterScreen(),
+        '/login' : (context) => const LoginScreen(),
+        '/profil' : (context) => const ProfilScreen(),
       },
     );
   }
